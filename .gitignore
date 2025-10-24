@@ -1,0 +1,17 @@
+# Ignore Node.js dependency folders
+react-ticket-app/node_modules/
+vue-ticket-app/node_modules/
+
+# Ignore Composer dependency folder
+twig-ticket-app/vendor/
+
+# Ignore build output folders (just in case)
+react-ticket-app/dist/
+vue-ticket-app/dist/
+
+# Ignore OS-specific files
+.DS_Store
+Thumbs.db
+
+# Ignore IDE specific files
+.vscode/
