@@ -1,0 +1,410 @@
+/* =============================================
+   THIS IS YOUR "SHELL" / SHARED CSS
+   (styles.css)
+   This single file will style all 3 apps.
+============================================= */
+
+/* --- 1. Imports & Global Setup --- */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #f8f9fa;
+    /* Light grey background */
+    color: #343a40;
+    line-height: 1.6;
+}
+
+a {
+    text-decoration: none;
+    color: #007bff;
+    transition: all 0.2s ease;
+}
+
+a:hover {
+    color: #0056b3;
+}
+
+/* --- 2. Main Layout (The 1440px Rule) --- */
+.container {
+    width: 90%;
+    max-width: 1440px;
+    /* REQUIRED */
+    margin: 0 auto;
+    /* REQUIRED (centers content) */
+}
+
+/* --- 3. Shared Components --- */
+.btn {
+    display: inline-block;
+    padding: 0.75rem 1.5rem;
+    font-size: 1rem;
+    font-weight: 500;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.btn-primary {
+    background: #007bff;
+    color: #fff;
+}
+
+.btn-primary:hover {
+    background: #0056b3;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(0, 123, 255, 0.3);
+}
+
+.btn-secondary {
+    background: #6c757d;
+    color: #fff;
+}
+
+.btn-secondary:hover {
+    background: #5a6268;
+}
+
+.btn-danger {
+    background: #dc3545;
+    color: #fff;
+}
+
+.btn-danger:hover {
+    background: #c82333;
+}
+
+.btn-link {
+    background: none;
+    border: none;
+    color: #007bff;
+    padding: 0;
+    font-size: 0.9rem;
+    cursor: pointer;
+}
+
+.btn-link:hover {
+    text-decoration: underline;
+}
+
+/* Form Styles */
+.form-container {
+    max-width: 500px;
+    margin: 2rem auto;
+    padding: 2.5rem;
+    background: #ffffff;
+    border-radius: 12px;
+    /* REQUIRED (box-shape) */
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.07);
+    /* REQUIRED (shadow) */
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    padding: 0.75rem;
+    font-size: 1rem;
+    font-family: 'Poppins', sans-serif;
+    border: 1px solid #ced4da;
+    border-radius: 8px;
+}
+
+textarea {
+    min-height: 120px;
+    resize: vertical;
+}
+
+/* Inline Error Message */
+.error-inline {
+    color: #dc3545;
+    font-size: 0.875rem;
+    margin-top: 0.25rem;
+    min-height: 1em;
+    /* Prevents layout jump */
+}
+
+/* --- 4. Page-Specific Styles --- */
+
+/* Landing Page */
+.hero {
+    position: relative;
+    /* For overlapping circles */
+    background: linear-gradient(90deg, #007bff, #00c6ff);
+    color: #fff;
+    padding: 6rem 0;
+    text-align: center;
+    overflow: hidden;
+    /* For wave */
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+}
+
+.hero h1 {
+    font-size: 3rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+}
+
+.hero p {
+    font-size: 1.25rem;
+    margin-bottom: 2rem;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Wavy Hero Background */
+.hero-wave {
+    position: absolute;
+    bottom: -1px;
+    /* Sits perfectly on the bottom */
+    left: 0;
+    width: 100%;
+    z-index: 1;
+    pointer-events: none;
+}
+
+/* Decorative Circles */
+.deco-circle {
+    position: absolute;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.1);
+    /* Transparent white */
+    z-index: 1;
+}
+
+/* Hero Overlap Circle (REQUIRED) */
+.circle-hero-overlap {
+    width: 300px;
+    height: 300px;
+    top: -100px;
+    right: -100px;
+    z-index: 0;
+    /* Behind content */
+}
+
+/* Other Decorative Circle (REQUIRED) */
+.circle-content {
+    width: 150px;
+    height: 150px;
+    bottom: -75px;
+    left: -75px;
+    z-index: 2;
+}
+
+/* Feature Boxes */
+.features {
+    padding: 4rem 0;
+    background: #fff;
+    position: relative;
+    /* For the circle */
+    overflow: hidden;
+}
+
+.features h2 {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 2rem;
+}
+
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    position: relative;
+    z-index: 5;
+}
+
+.feature-box {
+    padding: 2rem;
+    background: #f8f9fa;
+    border-radius: 12px;
+    /* REQUIRED */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    /* REQUIRED */
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 2rem 0;
+    background: #343a40;
+    color: #fff;
+    margin-top: 2rem;
+}
+
+/* Main App Navigation */
+.app-nav {
+    background: #fff;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    padding: 1rem 0;
+}
+
+.app-nav .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.app-nav-logo {
+    font-weight: 600;
+    font-size: 1.25rem;
+    color: #343a40;
+}
+
+.app-nav ul {
+    list-style: none;
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+}
+
+/* Dashboard & Ticket Management */
+.page-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 2rem 0;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid #dee2e6;
+}
+
+/* Dashboard Stats */
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.stat-card {
+    padding: 1.5rem;
+    background: #fff;
+    border-radius: 12px;
+    /* REQUIRED */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    /* REQUIRED */
+}
+
+.stat-card h3 {
+    font-size: 1rem;
+    color: #6c757d;
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+}
+
+.stat-card p {
+    font-size: 2.25rem;
+    font-weight: 600;
+}
+
+/* Ticket Card List */
+.ticket-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+}
+
+.ticket-card {
+    padding: 1.5rem;
+    background: #fff;
+    border-radius: 12px;
+    /* REQUIRED */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    /* REQUIRED */
+    border-left: 5px solid;
+    /* Status color goes here */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.ticket-card h3 {
+    font-size: 1.25rem;
+    margin-bottom: 0.5rem;
+}
+
+.ticket-card p {
+    font-size: 0.9rem;
+    color: #6c757d;
+    margin-bottom: 1rem;
+}
+
+/* Status Colors (REQUIRED) */
+.status-open {
+    border-left-color: #28a745;
+    /* Green */
+}
+
+.status-in_progress {
+    border-left-color: #ffc107;
+    /* Amber */
+}
+
+.status-closed {
+    border-left-color: #6c757d;
+    /* Gray */
+}
+
+.status-tag {
+    font-size: 0.8rem;
+    font-weight: 600;
+    padding: 0.25rem 0.5rem;
+    border-radius: 4px;
+    color: #fff;
+    display: inline-block;
+    margin-top: 1rem;
+    text-transform: capitalize;
+}
+
+.status-tag-open {
+    background: #28a745;
+}
+
+.status-tag-in_progress {
+    background: #ffc107;
+    color: #333;
+}
+
+.status-tag-closed {
+    background: #6c757d;
+}
+
+.ticket-card-actions {
+    margin-top: 1rem;
+    display: flex;
+    gap: 0.5rem;
+}
+
+/* Accessibility (REQUIRED) */
+a:focus,
+button:focus,
+input:focus,
+select:focus,
+textarea:focus {
+    outline: 3px solid #007bff;
+    outline-offset: 2px;
+}

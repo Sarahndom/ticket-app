@@ -1,0 +1,55 @@
+{% extends "base.twig" %}
+{% block content %}
+{# Protect the page #}
+<script>
+  if (localStorage.getItem('ticketapp_session') === null) {
+    alert("Your session has expired — please log in again.");
+    window.location.href = 'login.php';
+  }
+</script>
+
+<main class="container">
+  <div class="form-container" style="max-width: 700px; margin: 2rem auto;">
+    <form id="new-ticket-form"> {# ID for JavaScript #}
+      <h2 style="margin-bottom: 1.5rem;">Create New Ticket</h2>
+
+      <p id="error-message" class="error-inline" style="margin-bottom: 1rem;"></p> {# Inline errors #}
+
+      <div class="form-group">
+        <label for="title">Title (Mandatory)</label>
+        <input type="text" id="title" class="form-control" required/> {# ID for JS #}
+        <p id="error-title" class="error-inline"></p> {# Specific field error #}
+      </div>
+
+      <div class="form-group">
+        <label for="status">Status (Mandatory)</label>
+        <select id="status" class="form-control" required> {# ID for JS #}
+          <option value="open">Open</option>
+          <option value="in_progress">In Progress</option>
+          <option value="closed">Closed</option>
+        </select>
+        <p id="error-status" class="error-inline"></p>
+      </div>
+
+      <div class="form-group">
+        <label for="priority">Priority (Optional)</label>
+        <select id="priority" class="form-control"> {# ID for JS #}
+          <option value="low">Low</option>
+          <option value="medium" selected>Medium</option>
+          <option value="high">High</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="description">Description (Optional)</label>
+        <textarea id="description" class="form-control"></textarea> {# ID for JS #}
+      </div>
+
+      <div style="display: flex; gap: 1rem;">
+          <button type="submit" class="btn btn-primary">Create Ticket</button>
+          <a href="tickets.php" class="btn btn-secondary">Cancel</a>
+      </div>
+    </form>
+  </div>
+</main>
+{% endblock %}

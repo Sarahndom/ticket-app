@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="../shared-assets/styles.css">
+
+    <title>{{ title | default('Ticket App') }}</title>
+</head>
+<body>
+    {% if show_header is defined and show_header %}
+        <nav class="app-nav">
+          <div class="container">
+            <a href="dashboard.php" class="app-nav-logo">TicketApp</a>
+            <ul>
+              <li><a href="dashboard.php">Dashboard</a></li>
+              <li><a href="tickets.php">Tickets</a></li>
+              <li><button id="logout-button" class="btn btn-secondary">Logout</button></li>
+            </ul>
+          </div>
+        </nav>
+    {% endif %}
+
+    {% block content %}{% endblock %}
+
+    <footer style="{{ footer_style | default('') }}"> {# Allows inline style for positioning #}
+        <div class="container">
+            <p>&copy; 2025 HNG TicketApp. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script type="module" src="js/main.js"></script>
+</body>
+</html>

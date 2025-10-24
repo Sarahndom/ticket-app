@@ -1,0 +1,42 @@
+{% extends "base.twig" %}
+{% block content %}
+<div class="form-container">
+  {# Give the form an ID so JavaScript can find it #}
+  <form id="login-form">
+    <h2 style="text-align: center; margin-bottom: 1.5rem;">Login</h2>
+
+    <div class="form-group">
+      <label for="email">Email</label>
+      <input
+        type="email"
+        id="email" {# ID for JavaScript #}
+        class="form-control"
+        value="test@user.com" {# Pre-filled test user #}
+        required {# Basic HTML validation #}
+      />
+    </div>
+
+    <div class="form-group">
+      <label for="password">Password</label>
+      <input
+        type="password"
+        id="password" {# ID for JavaScript #}
+        class="form-control"
+        value="password123" {# Pre-filled test user #}
+        required
+      />
+    </div>
+
+    {# Element for JavaScript to display inline errors (REQUIRED) #}
+    <p id="error-message" class="error-inline"></p>
+
+    <button type="submit" class="btn btn-primary" style="width: 100%;">
+      Login
+    </button>
+
+    <p style="margin-top: 1rem; text-align: center;">
+      No account? <a href="signup.php">Sign Up</a>
+    </p>
+  </form>
+</div>
+{% endblock %}

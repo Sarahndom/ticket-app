@@ -1,0 +1,41 @@
+{% extends "base.twig" %}
+{% block content %}
+{# This script MUST be at the top to protect the page (REQUIRED) #}
+<script>
+  if (localStorage.getItem('ticketapp_session') === null) {
+    // Redirect to login if not logged in
+    alert("Your session has expired — please log in again."); // REQUIRED Error Message
+    window.location.href = 'login.php';
+  }
+</script>
+
+<main class="container">
+  <div class="page-header">
+    <h1>Dashboard</h1>
+    <a href="ticket_new.php" class="btn btn-primary">Create New Ticket</a> {# Link to create page #}
+  </div>
+
+  <p style="margin-bottom: 1.5rem;">Welcome! Here's a summary of your tickets.</p>
+
+  {# Container for JavaScript to insert stats (REQUIRED) #}
+  <div class="stats-grid" id="dashboard-stats">
+    {# JavaScript will fill these cards #}
+    <div class="stat-card">
+      <h3>Total Tickets</h3>
+      <p id="stats-total">0</p>
+    </div>
+    <div class="stat-card">
+      <h3>Open Tickets</h3>
+      <p id="stats-open" style="color: #28a745;">0</p>
+    </div>
+    <div class="stat-card">
+      <h3>In Progress</h3>
+      <p id="stats-inProgress" style="color: #ffc107;">0</p>
+    </div>
+    <div class="stat-card">
+      <h3>Closed Tickets</h3>
+      <p id="stats-closed" style="color: #6c757d;">0</p> {# Note: HNG used 'Resolved', using 'Closed' to match status #}
+    </div>
+  </div>
+</main>
+{% endblock %}

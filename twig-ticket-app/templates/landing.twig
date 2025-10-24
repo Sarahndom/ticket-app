@@ -1,0 +1,47 @@
+{# Use the base.twig layout #}
+{% extends "base.twig" %}
+
+{# Insert content into the 'content' block #}
+{% block content %}
+<div class="hero">
+  <div class="deco-circle circle-hero-overlap"></div> {# REQUIRED Circle #}
+
+  <div class="container hero-content">
+    <h1>Welcome to TicketApp</h1> {# App Name #}
+    <p>Your one-stop solution for managing all your support tickets.</p> {# Catchy Description #}
+    <div>
+      {# Call-to-Action Buttons #}
+      <a href="login.php" class="btn btn-primary" style="margin-right: 1rem;">Login</a>
+      <a href="signup.php" class="btn btn-secondary">Get Started</a>
+    </div>
+  </div>
+
+  {# Wavy SVG Background (REQUIRED) #}
+  <img
+    src="../shared-assets/hero-wave.svg"
+    alt=""
+    class="hero-wave"
+  />
+</div>
+
+<div class="features"> {# Box-shaped sections (REQUIRED) #}
+  <div class="container">
+    <h2>Why Choose Us?</h2>
+    <div class="features-grid">
+      <div class="feature-box"> {# Card-like box with shadow/rounded corners #}
+        <h3>Manage Tickets</h3>
+        <p>Full Create, Read, Update, and Delete functionality for all your tickets.</p>
+      </div>
+      <div class="feature-box">
+        <h3>See Stats</h3>
+        <p>A simple, high-level dashboard to see your team's progress at a glance.</p>
+      </div>
+      <div class="feature-box">
+        <h3>Secure & Fast</h3>
+        <p>Your data is safe with our secure (simulated) authentication.</p>
+      </div>
+    </div>
+  </div>
+  <div class="deco-circle circle-content"></div> {# REQUIRED Second Circle #}
+</div>
+{% endblock %}
